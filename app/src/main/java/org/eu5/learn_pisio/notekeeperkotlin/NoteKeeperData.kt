@@ -5,7 +5,11 @@ package org.eu5.learn_pisio.notekeeperkotlin
  */
 // From the standpoint of our app, a course's courseId and title cannot be changed, so
 // both of these properties should be assign-once propertied.
-class CourseInfo(val courseId: String, val title: String)
+class CourseInfo(val courseId: String, val title: String) {
+	override fun toString(): String {
+		return title
+	}
+}
 
 // And, that gives us our complete CourseInfo class!
 // Also, since our class declaration doesn't need a body, we don't have to include

@@ -5,6 +5,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -15,19 +16,13 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
-		/*
-		fab.setOnClickListener { view ->
-			// In Kotlin, ID from XML layout file is automatically accessible in the code
-			// of that corresponding Activity by referencing ID name as variable!
-			val originalValue = textDisplayedValue.text.toString().toInt()
-			val newValue = originalValue * 2
-			textDisplayedValue.text = newValue.toString()
-			
-			// Snackbar is the way to display sliding info message to the User
-			Snackbar.make(view, "Value $originalValue changed to $newValue",
-				Snackbar.LENGTH_LONG)
-				.show()
-		} */
+		
+		val dm = DataManager() // data from Map
+		val adapterCourses = ArrayAdapter<CourseInfo>( // adapter
+			this, android.R.layout.simple_spinner_item, dm.courses.values.toList())
+		adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+		
+		coursesSpinner.adapter = adapterCourses // adapter property of Spinner class
 	}
 	
 	override fun onCreateOptionsMenu(menu: Menu): Boolean {
