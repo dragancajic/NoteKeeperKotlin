@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
-		
+		/*
 		fab.setOnClickListener { view ->
 			// In Kotlin, ID from XML layout file is automatically accessible in the code
 			// of that corresponding Activity by referencing ID name as variable!
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 			Snackbar.make(view, "Value $originalValue changed to $newValue",
 				Snackbar.LENGTH_LONG)
 				.show()
-		}
+		} */
 	}
 	
 	override fun onCreateOptionsMenu(menu: Menu): Boolean {
