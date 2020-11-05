@@ -1,7 +1,6 @@
 package org.eu5.learn_pisio.notekeeperkotlin
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -12,17 +11,33 @@ import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 	
+	private var notePosition = POSITION_NOT_SET
+	
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
 		
-		val dm = DataManager() // data from Map
 		val adapterCourses = ArrayAdapter<CourseInfo>( // adapter
-			this, android.R.layout.simple_spinner_item, dm.courses.values.toList())
+			this, android.R.layout.simple_spinner_item, DataManager.courses.values.toList())
 		adapterCourses.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 		
 		coursesSpinner.adapter = adapterCourses // adapter property of Spinner class
+		
+		// retrieve back note position from extra within intent
+		notePosition = intent.getIntExtra(EXTRA_NOTE_POSITION, POSITION_NOT_SET)
+		
+		if (notePosition != POSITION_NOT_SET)
+			displayNote()
+	}
+	
+	private fun displayNote() {
+		val note = DataManager.notes[notePosition]
+		noteTitleEditText.setText(note.title)
+		noteTextEditText.setText(note.text)
+		
+		val coursePosition = DataManager.courses.values.indexOf(note.course)
+		coursesSpinner.setSelection(coursePosition)
 	}
 	
 	override fun onCreateOptionsMenu(menu: Menu): Boolean {

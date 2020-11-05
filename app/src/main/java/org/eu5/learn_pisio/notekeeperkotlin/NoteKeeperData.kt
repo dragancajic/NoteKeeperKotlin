@@ -5,7 +5,7 @@ package org.eu5.learn_pisio.notekeeperkotlin
  */
 // From the standpoint of our app, a course's courseId and title cannot be changed, so
 // both of these properties should be assign-once propertied.
-class CourseInfo(val courseId: String, val title: String) {
+data class CourseInfo(val courseId: String, val title: String) {
 	override fun toString(): String {
 		return title
 	}
@@ -21,7 +21,7 @@ class CourseInfo(val courseId: String, val title: String) {
 // The first characteristic of a note is the course that's associated with that note.
 // We want the note's course to be available to be changed in a note, so it will be:
 // course is mutable property!
-class NoteInfo(var course: CourseInfo, var title: String, var text: String)
+data class NoteInfo(var course: CourseInfo, var title: String, var text: String)
 
 /**
  * Class that will serve as the central point of management for instances of classes
