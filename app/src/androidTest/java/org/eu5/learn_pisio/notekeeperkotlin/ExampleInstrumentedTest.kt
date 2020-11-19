@@ -1,5 +1,7 @@
 package org.eu5.learn_pisio.notekeeperkotlin
 
+import android.app.Instrumentation
+
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 

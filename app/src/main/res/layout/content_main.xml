@@ -8,20 +8,6 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <EditText
-        android:id="@+id/noteTextEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Note Text"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="@+id/coursesSpinner"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/coursesSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/noteTitleEditText" />
-
     <Spinner
         android:id="@+id/coursesSpinner"
         android:layout_width="0dp"
@@ -46,4 +32,18 @@
         app:layout_constraintEnd_toEndOf="@+id/coursesSpinner"
         app:layout_constraintStart_toStartOf="@+id/coursesSpinner"
         app:layout_constraintTop_toBottomOf="@+id/coursesSpinner" />
+
+    <EditText
+        android:id="@+id/noteTextEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Note Text"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/coursesSpinner"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/coursesSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/noteTitleEditText" />
 </androidx.constraintlayout.widget.ConstraintLayout>
