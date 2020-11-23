@@ -21,7 +21,7 @@ data class CourseInfo(val courseId: String, val title: String) {
 // The first characteristic of a note is the course that's associated with that note.
 // We want the note's course to be available to be changed in a note, so it will be:
 // course is mutable property!
-data class NoteInfo(var course: CourseInfo, var title: String, var text: String)
+data class NoteInfo(var course: CourseInfo? = null, var title: String? = null, var text: String? = null)
 
 /**
  * Class that will serve as the central point of management for instances of classes

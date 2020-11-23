@@ -28,11 +28,15 @@ class NoteListActivity : AppCompatActivity() {
 			val activityIntent = Intent(this, MainActivity::class.java)
 			
 			// information about the note
-			activityIntent.putExtra(EXTRA_NOTE_POSITION, position)
+			activityIntent.putExtra(NOTE_POSITION, position)
 			
 			// start another activity
 			startActivity(activityIntent)
 		}
 	}
 	
+	override fun onResume() {
+		super.onResume()
+		(listOfNotesListView.adapter as ArrayAdapter<NoteInfo>).notifyDataSetChanged()
+	}
 }
